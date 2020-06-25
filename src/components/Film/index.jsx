@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import './styles.scss';
 
-import imageNotFound from '../../assets/film_not_found.png';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import Modal from 'react-modal';
-
 import api from '../../services/api';
 import { useDispatch } from 'react-redux';
 import { deleteMovie } from '../../store/modules/movies/action';
+import { toast } from 'react-toastify';
+
+import imageNotFound from '../../assets/film_not_found.png';
+import { Link } from 'react-router-dom';
+import Modal from 'react-modal';
+import { MdDelete, MdModeEdit, MdLibraryBooks, MdCancel } from 'react-icons/md';
 
 const customStyles = {
   content: {
@@ -18,6 +19,8 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    width: '80%',
+    height: '60vh',
   },
 };
 
@@ -42,6 +45,10 @@ const Film = ({ film }) => {
     setOpenModal(!openModal);
   }
 
+  function releaseYear() {
+    return film.date.split('-')[0];
+  }
+
   return (
     <div className="catalog">
       <section className="catalog__container">
@@ -54,27 +61,28 @@ const Film = ({ film }) => {
         </header>
 
         <div className="catalog__information">
-          <h3>{film.title}</h3>
-          <p className="catalog__genre">
-            <a href="#">{film.genre}</a>
-          </p>
+          <h3>
+            {film.title}
+            {film.date && ` (${releaseYear()})`}
+          </h3>
+          <p className="catalog__genre">{film.genre}</p>
           <div className="catalog__actions">
             <a
               href="#"
-              className="catalog__actions--delete"
+              className="catalog__actions--details"
               onClick={() => handleDetails()}
             >
-              detalhes
+              <MdLibraryBooks />
             </a>
             <Link to={`movie/${film.id}`} className="catalog__actions--edit">
-              editar
+              <MdModeEdit />
             </Link>
             <a
               href="#"
               className="catalog__actions--delete"
               onClick={() => handleDelete()}
             >
-              excluir
+              <MdDelete />
             </a>
           </div>
         </div>
@@ -87,35 +95,56 @@ const Film = ({ film }) => {
         contentLabel="Detalhes"
         ariaHideApp={false}
       >
-        <h2>detalhes do filme</h2>
-        <section>
-          <article>
-            <p>Título do Filme - {film.title}</p>
-            <p>Sinopse - {film.synopsis}</p>
-            <p>Gênero - {film.genre}</p>
+        <section className="catalog__modal">
+          <div className="catalog__modal--close">
+            <button type="button" onClick={() => handleDetails()}>
+              <MdCancel fontSize={36} color="red" />
+            </button>
+          </div>
+
+          <article className="catalog__modal--details">
+            <h2>detalhes do filme</h2>
             <p>
-              Data de lançamento (mostrar apenas o ano na tela de consulta) -{' '}
-              {film.date || 'Não informado'}
+              <b>Título do filme </b>- {film.title}
             </p>
-            <p> Idioma - {film.language}</p>
-            <p>Legendado - {film.subtitled}</p>
-            <p>Diretor - {film.director || 'Não informado'}</p>
-            <p>Link no IMDB - {film.imdb || 'Não informado'}</p>
-            <p>Avaliação do filme - {film.evaluation || 'Não informado'}</p>
+            <p>
+              <b>Sinopse</b> - {film.synopsis}
+            </p>
+            <p>
+              <b>Gênero</b> - {film.genre}
+            </p>
+            <p>
+              <b>Data de lançamento</b> - {releaseYear() || 'Não informado'}
+            </p>
+            <p>
+              <b>Idioma</b> - {film.language}
+            </p>
+            <p>
+              <b>Legendado</b> - {film.subtitled}
+            </p>
+            <p>
+              <b>Diretor</b> - {film.director || 'Não informado'}
+            </p>
+            <p>
+              <b>Link no IMDB</b> - {film.imdb || 'Não informado'}
+            </p>
+            <p>
+              <b>Avaliação do filme</b> - {film.evaluation || 'Não informado'}
+            </p>
           </article>
-          <button type="button" onClick={() => handleDetails()}>
-            fechar
-          </button>
-          <Link
-            to={`movie/${film.id}`}
-            type="button"
-            onClick={() => handleDetails()}
-          >
-            editar
-          </Link>
-          <button type="button" onClick={() => handleDelete()}>
-            excluir
-          </button>
+
+          {/* <div className="catalog__actions">
+            <Link to={`movie/${film.id}`} className="catalog__actions--edit">
+              <MdModeEdit />
+            </Link>
+            <a
+              href="#"
+              className="catalog__actions--delete"
+              onClick={() => handleDelete()}
+            >
+              <MdDelete />
+            </a>
+          </div> */}
         </section>
       </Modal>
     </div>
