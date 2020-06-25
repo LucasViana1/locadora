@@ -104,7 +104,7 @@ const Movie = () => {
           });
         }
 
-        toast.success('Filme cadastrado com sucesso!');
+        toast.success(`Filme ${edit ? 'editado' : 'cadastrado'} com sucesso!`);
         history.push('/');
       })
       .catch((error) => {
@@ -130,7 +130,9 @@ const Movie = () => {
 
   return (
     <section className="movie">
-      <h1>{edit ? 'editar' : 'novo'} filme</h1>
+      <div>
+        <h1>{edit ? 'editar' : 'novo'} filme</h1>
+      </div>
 
       <form onSubmit={handleSubmit} className="movie__form">
         <fieldset>
@@ -217,6 +219,7 @@ const Movie = () => {
               placeholder={'00/00/0000...'}
               value={date}
               handleValue={setDate}
+              type={'date'}
             />
 
             <InputText

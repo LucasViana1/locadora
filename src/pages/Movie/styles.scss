@@ -8,7 +8,11 @@
 
 .movie {
   margin-top: $headerDistance;
-  // padding: 0px 20px;
+
+  div h1 {
+    text-align: center;
+    text-transform: uppercase;
+  }
 }
 
 .movie__form {
@@ -22,7 +26,7 @@
   width: 90vw;
   padding: 0;
   margin: 0;
-
+  border-radius: 10px;
   margin-inline-start: 0;
   margin-inline-end: 0;
   padding-block-start: 0;
@@ -30,6 +34,7 @@
   padding-inline-end: 0;
   padding-block-end: 0;
   min-inline-size: initial;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.562);
 }
 
 .movie__form button {
