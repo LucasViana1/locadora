@@ -1,0 +1,17 @@
+@import '../../index.scss';
+
+.header {
+  display: flex;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.692);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 900;
+  background: #fff;
+  padding: 12px 45px;
+  // justify-content: space-around;
+
+  // nav {
+  //   margin-left: 30px;
+  // }
+}
