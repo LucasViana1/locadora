@@ -9,6 +9,7 @@ const InputText = ({
   placeholder,
   textarea,
   error,
+  type,
 }) => {
   return (
     <div className="field">
@@ -25,7 +26,7 @@ const InputText = ({
         ></textarea>
       ) : (
         <input
-          type="text"
+          type={type ? type : 'text'}
           name={name}
           id={name}
           placeholder={placeholder}
