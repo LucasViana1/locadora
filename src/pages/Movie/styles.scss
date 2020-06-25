@@ -1,0 +1,44 @@
+@import '../../index.scss';
+
+@media screen and (max-width: 768px) {
+  .movie__group--input {
+    display: block !important;
+  }
+}
+
+.movie {
+  margin-top: $headerDistance;
+  // padding: 0px 20px;
+}
+
+.movie__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie__form fieldset {
+  display: flex;
+  width: 90vw;
+  padding: 0;
+  margin: 0;
+
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block-start: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  padding-block-end: 0;
+  min-inline-size: initial;
+}
+
+.movie__form button {
+  margin: 16px 0px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.movie__group--input {
+  display: flex;
+  flex: 1;
+}
