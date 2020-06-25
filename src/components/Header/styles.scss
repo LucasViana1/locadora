@@ -1,5 +1,18 @@
 @import '../../index.scss';
 
+@media screen and (min-width: 768px) {
+  .header {
+    justify-content: start !important;
+    padding: 4px 26px !important;
+  }
+
+  .header__nav {
+    a {
+      margin-left: 14px !important;
+    }
+  }
+}
+
 .header {
   display: flex;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.692);
@@ -8,10 +21,33 @@
   top: 0;
   z-index: 900;
   background: #fff;
-  padding: 12px 45px;
-  // justify-content: space-around;
+  padding: 4px 0px;
+  justify-content: center;
 
-  // nav {
-  //   margin-left: 30px;
-  // }
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 21px;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 8px;
+    text-transform: uppercase;
+    color: black;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      width: 70px;
+      height: auto;
+      margin-right: 6px;
+    }
+  }
 }
