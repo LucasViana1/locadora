@@ -1,21 +1,43 @@
 @import '../../index.scss';
 
-@media screen and (max-width: 768px) {
+// @media screen and (max-width: 768px) {
 
-  .dashboard__container {
-    justify-content: center !important;
-  }
-}
+
+// }
 
 .dashboard {
-
   margin-top: $headerDistance;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    text-transform: uppercase;
+    margin-block-start: 0;
+  }
 }
 
 .dashboard__container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  width: 90%;
+}
+
+.dashboard__alert {
+  margin-top: 9em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 16px;
+  color: rgb(240, 3, 3);
+}
+
+.dashboard__alert--icon {
+  margin-top: 8px;
+  font-size: 30px;
+  color: rgb(170, 32, 32)
 }
 
 // .catalog {
