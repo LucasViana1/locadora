@@ -32,6 +32,10 @@ $heighCapa: 240px;
   position: relative;
 }
 
+.catalog__cover {
+  cursor: pointer;
+}
+
 .catalog__cover img {
   height: $heighCapa;
   width: 410px;
