@@ -122,7 +122,6 @@ const Movie = () => {
         setTimeout(() => {
           setLoad(false);
         }, 2000);
-        // window.scroll(0, 0);
         toast.error('Campos obrigatórios não preenchidos!');
       });
 
@@ -138,10 +137,8 @@ const Movie = () => {
 
         <form onSubmit={handleSubmit} className="movie__form">
           <fieldset>
-            <legend>
-              <h2>Dados obrigatórios</h2>
-            </legend>
-
+            <h2>Dados obrigatórios</h2>
+            <hr />
             <div className="movie__group--input">
               <InputText
                 label="Título do Filme"
@@ -192,10 +189,8 @@ const Movie = () => {
           </fieldset>
 
           <fieldset>
-            <legend>
-              <h2>Dados opcionais</h2>
-            </legend>
-
+            <h2>Dados opcionais</h2>
+            <hr />
             <div className="movie__group--input">
               <InputText
                 label="Capa do filme"

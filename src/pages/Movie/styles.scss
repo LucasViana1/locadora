@@ -12,6 +12,7 @@
   div h1 {
     text-align: center;
     text-transform: uppercase;
+    color: rgb(236, 236, 236);
   }
 }
 
@@ -20,11 +21,18 @@
   flex-direction: column;
   align-items: center;
 
+  hr {
+    background: rgb(53, 53, 53);
+    height: 1px;
+    border: 0;
+  }
+
   fieldset {
     display: flex;
     width: 90vw;
     padding: 0;
     margin: 0;
+    margin-bottom: 10px;
     border-radius: 10px;
     margin-inline-start: 0;
     margin-inline-end: 0;
@@ -33,7 +41,16 @@
     padding-inline-end: 0;
     padding-block-end: 0;
     min-inline-size: initial;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.562);
+    // box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.562);
+    background: $purple;
+    border: 0;
+
+    h2 {
+      // color: rgb(236, 236, 236);
+      color: $purpleDark;
+      margin-left: 8px;
+      margin: 8px
+    }
   }
 
   button {
@@ -42,7 +59,6 @@
     font-size: 20px;
     background: rgb(37, 187, 0);
     outline: inherit;
-    // font-size: 1.8em;
     display: flex;
     align-items: center;
     justify-content: center;
