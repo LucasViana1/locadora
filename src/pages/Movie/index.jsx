@@ -3,11 +3,14 @@ import './styles.scss';
 
 import * as yup from 'yup';
 import { useParams, useHistory } from 'react-router-dom';
-import InputText from '../../components/InputText';
 import api from '../../services/api';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { newMovie } from '../../store/modules/movies/action';
+import { newMovie, formError } from '../../store/modules/movies/action';
+
+import { MdDone } from 'react-icons/md';
+import InputText from '../../components/InputText';
+import Loading from '../../components/Loading';
 
 const Movie = () => {
   const [title, setTitle] = useState('');
@@ -24,6 +27,7 @@ const Movie = () => {
 
   const [submitError, setSubmitError] = useState('');
   const [edit, setEdit] = useState(false);
+  const [load, setLoad] = useState(false);
 
   const params = useParams();
   const history = useHistory();
@@ -44,6 +48,9 @@ const Movie = () => {
       setEdit(true);
     }
   }, [params]);
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   function fillInput(data) {
     setTitle(data.title);
@@ -59,6 +66,8 @@ const Movie = () => {
   }
 
   function handleSubmit(event) {
+    setLoad(true);
+    dispatch(formError(false));
     yup.setLocale({
       mixed: {
         required: 'Campo obrigatório',
@@ -103,146 +112,145 @@ const Movie = () => {
             dispatch(newMovie(response.data));
           });
         }
-
+        setLoad(false);
         toast.success(`Filme ${edit ? 'editado' : 'cadastrado'} com sucesso!`);
         history.push('/');
       })
       .catch((error) => {
-        console.log('err');
-        console.log(error);
         setSubmitError(error.path);
+        dispatch(formError(true));
+        setTimeout(() => {
+          setLoad(false);
+        }, 2000);
+        // window.scroll(0, 0);
         toast.error('Campos obrigatórios não preenchidos!');
-        window.scroll(0, 0);
       });
-
-    // schema
-    //   .isValid({
-    //     title: 'asd',
-    //     test: 'a',
-    //   })
-    //   .then(function (valid) {
-    //     console.log('valid');
-    //     console.log(valid);
-    //   });
 
     event.preventDefault();
   }
 
   return (
-    <section className="movie">
-      <div>
-        <h1>{edit ? 'editar' : 'novo'} filme</h1>
-      </div>
+    <>
+      <section className="movie">
+        <div>
+          <h1>{edit ? 'editar' : 'novo'} filme</h1>
+        </div>
 
-      <form onSubmit={handleSubmit} className="movie__form">
-        <fieldset>
-          <legend>
-            <h2>Dados obrigatórios</h2>
-          </legend>
+        <form onSubmit={handleSubmit} className="movie__form">
+          <fieldset>
+            <legend>
+              <h2>Dados obrigatórios</h2>
+            </legend>
 
-          <div className="movie__group--input">
+            <div className="movie__group--input">
+              <InputText
+                label="Título do Filme"
+                name="title"
+                placeholder={'Filme...'}
+                value={title}
+                handleValue={setTitle}
+                error={submitError}
+              />
+              <InputText
+                label="Gênero"
+                name="genre"
+                placeholder={'Ação, Aventura, Terror...'}
+                value={genre}
+                handleValue={setGenre}
+                error={submitError}
+              />
+            </div>
+
             <InputText
-              label="Título do Filme"
-              name="title"
-              placeholder={'Filme...'}
-              value={title}
-              handleValue={setTitle}
+              label="Sinopse"
+              name="synopsis"
+              placeholder={'Breve descrição sobre o filme...'}
+              value={synopsis}
+              handleValue={setSynopsis}
               error={submitError}
-            />
-            <InputText
-              label="Gênero"
-              name="genre"
-              placeholder={'Ação, Aventura, Terror...'}
-              value={genre}
-              handleValue={setGenre}
-              error={submitError}
-            />
-          </div>
-
-          <InputText
-            label="Sinopse"
-            name="synopsis"
-            placeholder={'Breve descrição sobre o filme...'}
-            value={synopsis}
-            handleValue={setSynopsis}
-            error={submitError}
-            textarea
-          />
-
-          <div className="movie__group--input">
-            <InputText
-              label="Idioma"
-              name="language"
-              placeholder={'Inglês, Português...'}
-              value={language}
-              handleValue={setLanguage}
-              error={submitError}
-            />
-            <InputText
-              label="Legendado"
-              name="subtitled"
-              placeholder={'Legendado...'}
-              value={subtitled}
-              handleValue={setSubtitled}
-              error={submitError}
-            />
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>
-            <h2>Dados opcionais</h2>
-          </legend>
-
-          <div className="movie__group--input">
-            <InputText
-              label="Capa do filme"
-              name="image"
-              placeholder={'Link da imagem...'}
-              value={image}
-              handleValue={setImage}
+              textarea
             />
 
-            <InputText
-              label="IMDB"
-              name="imdb"
-              placeholder={'Link no IMDB...'}
-              value={imdb}
-              handleValue={setImdb}
-            />
-          </div>
+            <div className="movie__group--input">
+              <InputText
+                label="Idioma"
+                name="language"
+                placeholder={'Inglês, Português...'}
+                value={language}
+                handleValue={setLanguage}
+                error={submitError}
+              />
+              <InputText
+                label="Legendado"
+                name="subtitled"
+                placeholder={'Legendado...'}
+                value={subtitled}
+                handleValue={setSubtitled}
+                error={submitError}
+              />
+            </div>
+          </fieldset>
 
-          <div className="movie__group--input">
-            <InputText
-              label="Data de lançamento"
-              name="date"
-              placeholder={'00/00/0000...'}
-              value={date}
-              handleValue={setDate}
-              type={'date'}
-            />
+          <fieldset>
+            <legend>
+              <h2>Dados opcionais</h2>
+            </legend>
 
-            <InputText
-              label="Diretor"
-              name="director"
-              placeholder={'Nome completo...'}
-              value={director}
-              handleValue={setDirector}
-            />
+            <div className="movie__group--input">
+              <InputText
+                label="Capa do filme"
+                name="image"
+                placeholder={'Link da imagem...'}
+                value={image}
+                handleValue={setImage}
+              />
 
-            <InputText
-              label="Avaliação do filme"
-              name="evaluation"
-              placeholder={'Avalia...'}
-              value={evaluation}
-              handleValue={setEvaluation}
-            />
-          </div>
-        </fieldset>
+              <InputText
+                label="IMDB"
+                name="imdb"
+                placeholder={'Link no IMDB...'}
+                value={imdb}
+                handleValue={setImdb}
+              />
+            </div>
 
-        <button type="submit">{edit ? 'editar' : 'salvar'}</button>
-      </form>
-    </section>
+            <div className="movie__group--input">
+              <InputText
+                label="Data de lançamento"
+                name="date"
+                placeholder={'00/00/0000...'}
+                value={date}
+                handleValue={setDate}
+                type={'date'}
+              />
+
+              <InputText
+                label="Diretor"
+                name="director"
+                placeholder={'Nome completo...'}
+                value={director}
+                handleValue={setDirector}
+              />
+
+              <InputText
+                label="Avaliação do filme"
+                name="evaluation"
+                placeholder={'Avalia...'}
+                value={evaluation}
+                handleValue={setEvaluation}
+                type="number"
+                limit={10}
+              />
+            </div>
+          </fieldset>
+
+          <button type="submit">
+            {load ? <Loading size={20} /> : <MdDone />}
+            {edit ? 'editar' : 'salvar'}
+          </button>
+        </form>
+      </section>
+    </>
   );
 };
 
