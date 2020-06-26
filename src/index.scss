@@ -1,5 +1,5 @@
 $headerDistance: 98px;
-$orangeMark: orangered;
+$orangeMark: rgb(255, 94, 0);
 
 body {
   margin: 0;
@@ -12,4 +12,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $orangeMark;
+  border-radius: 8px;
 }
