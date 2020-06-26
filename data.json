@@ -1,75 +1,10 @@
 {
   "movies": [
     {
-      "title": "nome filmea",
-      "synopsis": "lorem ippit",
-      "genre": "acao",
-      "language": "ingles",
-      "subtitled": "sim",
-      "image": "",
-      "date": "",
-      "director": "",
-      "imdb": "",
-      "evaluation": "",
-      "id": 3
-    },
-    {
-      "title": "teste",
-      "synopsis": "teste",
-      "genre": "teste",
-      "language": "teste",
-      "subtitled": "teste",
-      "image": "",
-      "date": "",
-      "director": "",
-      "imdb": "",
-      "evaluation": "",
-      "id": 4
-    },
-    {
-      "title": "asd",
-      "synopsis": "asd",
-      "genre": "asd",
-      "language": "asd",
-      "subtitled": "asd",
-      "image": "",
-      "date": "",
-      "director": "",
-      "imdb": "",
-      "evaluation": "",
-      "id": 5
-    },
-    {
-      "title": "asdad",
-      "synopsis": "response.data",
-      "genre": "response.data",
-      "language": "response.data",
-      "subtitled": "response.data",
-      "image": "",
-      "date": "",
-      "director": "",
-      "imdb": "",
-      "evaluation": "",
-      "id": 7
-    },
-    {
-      "title": "asdsa",
-      "synopsis": "asdsa",
-      "genre": "asdsa",
-      "language": "asdsa",
-      "subtitled": "asdsa",
-      "image": "",
-      "date": "",
-      "director": "",
-      "imdb": "",
-      "evaluation": "",
-      "id": 8
-    },
-    {
-      "title": "Pinoqui",
+      "title": "Pinóquio",
       "synopsis": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
       "genre": "Aventura",
-      "language": "Ingles",
+      "language": "Inglês",
       "subtitled": "sim",
       "image": "",
       "date": "1998-11-01",
@@ -105,17 +40,17 @@
       "id": 12
     },
     {
-      "title": "asdasd",
-      "synopsis": "asdasd",
-      "genre": "asdads",
-      "language": "asdas",
-      "subtitled": "dasd",
-      "image": "",
-      "date": "",
+      "title": "Mulher maravilha",
+      "synopsis": "lorem\nlorem\nlorem\nlorem\nlorem\nlorem\nlorem\nlorem\nlorem\n",
+      "genre": "Ação, aventura",
+      "language": "Inglês",
+      "subtitled": "sim",
+      "image": "https://capas-m2.wmixvideo.com.br/cr124509.jpg",
+      "date": "2020-06-26",
       "director": "",
       "imdb": "",
       "evaluation": "",
-      "id": 13
+      "id": 14
     }
   ]
 }
