@@ -1,12 +1,14 @@
 $headerDistance: 98px;
 $orangeMark: rgb(255, 94, 0);
+$purple: rgb(105, 40, 179);
+$purpleDark: rgb(30, 12, 49);
 
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f9f9f9;
+  background: rgb(10, 10, 10);
 }
 
 code {
