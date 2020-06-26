@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import { MdDelete, MdModeEdit, MdLibraryBooks, MdCancel } from 'react-icons/md';
 
-const customStyles = {
+const customStylesModal = {
   content: {
     top: '50%',
     left: '50%',
@@ -91,7 +91,7 @@ const Film = ({ film }) => {
         isOpen={openModal}
         // onAfterOpen={afterOpenModal}
         onRequestClose={handleDetails}
-        style={customStyles}
+        style={customStylesModal}
         contentLabel="Detalhes"
         ariaHideApp={false}
       >
