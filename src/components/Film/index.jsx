@@ -21,6 +21,7 @@ const customStylesModal = {
     transform: 'translate(-50%, -50%)',
     width: '80%',
     height: '70vh',
+    background: 'rgb(10, 10, 10)',
   },
 };
 

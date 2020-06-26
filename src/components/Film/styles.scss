@@ -148,6 +148,8 @@ $heighCapa: 240px;
 
   h2 {
     text-transform: uppercase;
+    color: whitesmoke;
+    text-decoration: underline;
   }
 }
 
@@ -166,7 +168,8 @@ $heighCapa: 240px;
     justify-content: center;
     border: none;
     cursor: pointer;
-    color: rgba(0, 0, 0, 0.9);
+    // color: rgba(0, 0, 0, 0.9);
+    color: whitesmoke;
     border-radius: 50%;
     opacity: 0.9;
   }
@@ -178,4 +181,5 @@ $heighCapa: 240px;
   align-items: center;
   flex-direction: column;
   margin-top: -12px;
+  color: whitesmoke
 }
