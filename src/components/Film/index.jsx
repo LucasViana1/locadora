@@ -20,7 +20,7 @@ const customStylesModal = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     width: '80%',
-    height: '60vh',
+    height: '70vh',
   },
 };
 
@@ -89,7 +89,6 @@ const Film = ({ film }) => {
       </section>
       <Modal
         isOpen={openModal}
-        // onAfterOpen={afterOpenModal}
         onRequestClose={handleDetails}
         style={customStylesModal}
         contentLabel="Detalhes"
@@ -105,46 +104,33 @@ const Film = ({ film }) => {
           <article className="catalog__modal--details">
             <h2>detalhes do filme</h2>
             <p>
-              <b>Título do filme </b>- {film.title}
+              <b>Título do filme:</b> {film.title}
             </p>
             <p>
-              <b>Sinopse</b> - {film.synopsis}
+              <b>Sinopse:</b> {film.synopsis}
             </p>
             <p>
-              <b>Gênero</b> - {film.genre}
+              <b>Gênero:</b> {film.genre}
             </p>
             <p>
-              <b>Data de lançamento</b> - {releaseYear() || 'Não informado'}
+              <b>Data de lançamento:</b> {releaseYear() || 'Não informado'}
             </p>
             <p>
-              <b>Idioma</b> - {film.language}
+              <b>Idioma:</b> {film.language}
             </p>
             <p>
-              <b>Legendado</b> - {film.subtitled}
+              <b>Legendado:</b> {film.subtitled}
             </p>
             <p>
-              <b>Diretor</b> - {film.director || 'Não informado'}
+              <b>Diretor:</b> {film.director || 'Não informado'}
             </p>
             <p>
-              <b>Link no IMDB</b> - {film.imdb || 'Não informado'}
+              <b>Link no IMDB:</b> {film.imdb || 'Não informado'}
             </p>
             <p>
-              <b>Avaliação do filme</b> - {film.evaluation || 'Não informado'}
+              <b>Avaliação do filme:</b> {film.evaluation || 'Não informado'}
             </p>
           </article>
-
-          {/* <div className="catalog__actions">
-            <Link to={`movie/${film.id}`} className="catalog__actions--edit">
-              <MdModeEdit />
-            </Link>
-            <a
-              href="#"
-              className="catalog__actions--delete"
-              onClick={() => handleDelete()}
-            >
-              <MdDelete />
-            </a>
-          </div> */}
         </section>
       </Modal>
     </div>
