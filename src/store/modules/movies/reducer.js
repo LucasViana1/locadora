@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   movies: [],
+  fieldError: false,
 };
 
 let newMovies;
@@ -27,6 +28,12 @@ const movies = (state = INITIAL_STATE, action) => {
       );
       console.log(newMovies);
       return { ...state, movies: newMovies };
+
+    case '@movie/FORM_ERROR':
+      console.log('state - action formerror');
+      console.log(state);
+      console.log(action);
+      return { ...state, fieldError: action.payload.error };
 
     default:
       return state;

@@ -22,3 +22,11 @@ export function deleteMovie(id) {
     },
   };
 }
+export function formError(error) {
+  return {
+    type: '@movie/FORM_ERROR',
+    payload: {
+      error,
+    },
+  };
+}
