@@ -35,7 +35,7 @@ Na raiz do projeto, utilize o comando:
 
 ### `yarn start`
 
-Será inicializado o servidor de desenvolvimento no endereço [http://localhost:3000](http://localhost:3000)
+Assim será inicializado o servidor de desenvolvimento no endereço [http://localhost:3000](http://localhost:3000)
 
 Para utilizar a API de testes utilize na raiz do projeto o comando:
 
@@ -50,22 +50,24 @@ A API poderá ser utilizada a partir do endereço [http://localhost:4200](http:/
   <li>components: componentes reutilizáveis;</li>
   <li>pages: páginas renderizadas na tela ao acessar suas respectivas rotas;</li>
   <li>services: acesso a serviços externos, como APIs;</li>
-  <li>store: loja em que mantém o estado global da aplicação através do Redux, foi utilizado o padrão de modulos no projeto, para a organização da action e reducer;</li>
-  <li>routes: definição rotas da aplicação e seus respectivos componentes;</li>
+  <li>store: loja em que mantém o estado global da aplicação através do Redux, foi utilizado o padrão de módulos no projeto, para a organização da action e reducer;</li>
+  <li>routes: definição de rotas da aplicação e seus respectivos componentes;</li>
   <li>para a estilização foi utilizado o pré processador SASS, além da metodologia BEM (Block Element Modifier) para a organização do CSS</li>
 </ul>
 
 ## :interrobang: Funcionamento
 
-<!-- COLOCAR IMAGEM DAS TELAS... -->
-
 Na tela principal é exibido a listagem com todos os filmes cadastrados no catálogo, em cada filme é possivel ver inicialmente as informações da foto de capa, título, ano lançamento e gênero. É possível realizar as operações nos filmes de ver detalhes, editar e excluir o filme do catálogo.
+
+<img src="./src/assets/dashboard.PNG" width="1000">
 
 Utilizando o menu superior de navegação é possivel alternar entre a rota principal (catálogo de filmes) e a tela responsável pelo cadastro de um novo filme. Esse é a mesma tela onde pode ser possível criar ou editar um filme, dependendo da operação escolhida. No formulário existe a separação dos campos obrigatórios dos opcionais, onde os obrigatórios são passados por validação antes da tentativa de envio.
 
+<img src="./src/assets/movie.PNG" width="1000">
+
 ## :rocket: Tecnologias Utilizadas
 
-Algumas da bibliotecas usadas no projeto foi:
+Algumas das bibliotecas usadas no projeto:
 
 - axios
 - node-sass
