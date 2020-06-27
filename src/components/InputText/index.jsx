@@ -36,21 +36,19 @@ const InputText = ({
           className={`${validateField() ? 'field__error' : ''}`}
         ></textarea>
       ) : (
-        <input
-          data-testid="input"
-          type={type ? type : 'text'}
-          name={name}
-          id={name}
-          placeholder={placeholder}
-          value={value}
-          onChange={(event) => handleValue(event.target.value)}
-          className={`${validateField() ? 'field__error' : ''}`}
-          max={limit}
-        />
-      )}
-      {console.log('error...')}
-      {console.log(value)}
-      {console.log(fieldError)}
+          <input
+            data-testid="input"
+            type={type ? type : 'text'}
+            name={name}
+            id={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={(event) => handleValue(event.target.value)}
+            className={`${validateField() ? 'field__error' : ''}`}
+            max={limit}
+          />
+        )}
+
       {validateField() ? <span>Campo obrigatório</span> : null}
     </div>
   );

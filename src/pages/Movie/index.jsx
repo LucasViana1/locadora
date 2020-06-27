@@ -39,7 +39,7 @@ const Movie = () => {
       api
         .get(`movies/${id}`)
         .then((response) => {
-          console.log(response);
+
           fillInput(response.data);
         })
         .catch((error) => {

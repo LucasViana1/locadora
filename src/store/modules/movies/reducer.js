@@ -20,20 +20,17 @@ const movies = (state = INITIAL_STATE, action) => {
       };
 
     case '@movie/DELETE':
-      console.log('state - action delete');
-      console.log(state);
-      console.log(action);
       newMovies = state.movies.filter(
         (movie) => movie.id !== action.payload.id
       );
-      console.log(newMovies);
-      return { ...state, movies: newMovies };
+      return {
+        ...state, movies: newMovies
+      };
 
     case '@movie/FORM_ERROR':
-      console.log('state - action formerror');
-      console.log(state);
-      console.log(action);
-      return { ...state, fieldError: action.payload.error };
+      return {
+        ...state, fieldError: action.payload.error
+      };
 
     default:
       return state;
